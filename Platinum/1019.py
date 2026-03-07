@@ -2,24 +2,24 @@ import sys
 input = sys.stdin.readline
 
 N = int(input())
-arr = [0] * 10
+li = [0] * 10
 num = 1
 def nine(N):
     while N % 10 != 9:
         for i in str(N):
-            arr[int(i)] += num
+            li[int(i)] += num
         N -= 1
     return N
 while N > 0:
     N = nine(N)
     if N < 10:
         for i in range(N + 1):
-            arr[i] += num
+            li[i] += num
     else:
         for i in range(10):
-            arr[i] += (N // 10 + 1) * num
-    arr[0] -= num
+            li[i] += (N // 10 + 1) * num
+    li[0] -= num
     num *= 10
     N //= 10
 for i in range(0, 10):
-    print(arr[i], end=' ')
+    print(li[i], end=' ')
